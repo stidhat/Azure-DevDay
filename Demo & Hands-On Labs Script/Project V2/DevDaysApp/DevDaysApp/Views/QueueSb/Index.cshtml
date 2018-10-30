@@ -1,0 +1,20 @@
+﻿@model DevDaysApp.Models.QueueSb
+@{
+    ViewBag.Title = "SB Queue messages";
+}
+<br />
+<h1>Service Bus Queue</h1>
+<br />
+<form action="/QueueSb/AddMessage" method="post" enctype="multipart/form-data">
+    <input type="number" name="totalMessage" id="totalMessage" />
+    <br />
+    <button type="submit" value="Add message">Add</button>
+</form>
+<br /><br />
+<button type="button" onclick="location.href='@Url.Action("PeekMessage", "QueueSb")'">Peek</button>
+<button type="button" onclick="location.href='@Url.Action("GetMessage", "QueueSb")'">Get</button>
+<br /><br />
+@Html.DisplayTextFor(m => m.Message)
+<br /><br />
+<h1>Total of messages:</h1>
+@Html.DisplayTextFor(m => m.TotalOfMessages)
